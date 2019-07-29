@@ -173,7 +173,7 @@ On branch new
 - Functionality
     - 在 GitHub 及本地的兩份檔案 `coffee_or_tea.txt` 和 `dog_or_cat.txt` 必須被修改。
     - 在 GitHub 及本地的 `README.md` 心得區必須有心得。
-    - 在 commit history 中應有兩個檔案修改的 commit 和一個 `README.txt` 修改的 commit
+    - 在 commit history 中應有兩個檔案修改的 commit 和一個 `README.md` 修改的 commit
 - Style
     - Commit message 必須清楚描述此次的 commit
 

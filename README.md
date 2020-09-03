@@ -1,12 +1,8 @@
-# a0-submit-assignments-through-github-classroom
+# Git Very Good Tutorial
 
-Assignment 0 for SC001: Submit Assignments Through GitHub Classroom
-
-這份前置作業會教大家如何透過 Git 將之後的作業上傳到 GitHub 上，同時也會教一些基本 Linux 指令讓你操作你的系統。所以與其說是作業，不如說是教學喔。Git 和 Linux 指令都是業界程式開發必備的技能，透過上傳作業趁機學習這些重要的工具可以說是一石二鳥！
+這份 tutorial 會以作業形式教大家如何透過 Git 管理檔案版本並上傳到 GitHub 上，同時也會教一些基本 Linux 指令讓你操作你的系統。Git 和 Linux 指令都是業界程式開發必備的技能，甚至學校作業都能用到，早學早使用！
 
 __本次作業包含： 4 個問題。總共預計完成時間為：45分鐘。__
-
-_如果作業卡關 歡迎各位到社團提問，也非常鼓勵同學們互相討論作業之 概念，但請勿把 code 給任何人看（也不要把程式碼貼在社團裡）分享妳/你的 code 會剝奪其他學生獨立思考的機會，也會因此讓其他學生的程式碼與你/妳的極度相似，讓防抄襲軟體認定有抄襲嫌疑._
 
 ## Problems
 
@@ -34,12 +30,13 @@ GitHub 亦提供許多其他功能，包括開 Issues 與開發者溝通專案�
 4. 檢查 Git 是否正確安裝
     1. 輸入 `which git`。若有成功安裝，則會印出 Git 程式的路徑。若沒有安裝成功則不會印出任何東西，請尋求幫助。
 5. 下載此份作業
-    1. 回到 GitHub 此份專案的網頁，點擊綠色按鈕 __Clone or download__ ，並複製呈現的 URL
+    1. 回到 GitHub 此份專案的網頁，點選右上角 __Fork__，將專案複製一份到自己的頁面。
+    2. 回到自己的頁面底下找到剛剛 fork 的專案。進入後點擊綠色按鈕 __Clone or download__ ，並複製呈現的 URL
     2. 輸入 `git clone <url>`。`<url>` 請用複製的 URL 取代。
-    3. 輸入 `ls` 確認作業成功下載。`ls` 代表 list，即列出當前目錄下的所有檔案與子目錄。若下載成功，會看到 `a0-submit-assignments-through-github-classroom-xxx` 印出，即子目錄 `a0-submit-assignments-through-github-classroom-xxx` 存在。`xxx` 理應是你的 GitHub 帳號。
+    3. 輸入 `ls` 確認作業成功下載。`ls` 代表 list，即列出當前目錄下的所有檔案與子目錄。若下載成功，會看到 `git-very-good-tutorial` 印出。
     4. 更換目錄至此專案。這邊請動動腦， __請問要用上面出現過的哪個指令呢？__
 
-若成功進入下載後的專案，terminal 的 prompt (`$`) 之前顯示的當前路徑會是 `.../a0-submit-assignments-through-github-classroom-xxx`。
+若成功進入下載後的專案，terminal 的 prompt (`$`) 之前顯示的當前路徑會是 `.../git-very-good-tutorial`。
 
 #### 提示
 
@@ -54,7 +51,7 @@ GitHub 亦提供許多其他功能，包括開 Issues 與開發者溝通專案�
 
 終於要來正式進行版本控制了。
 
-這邊講解一下 __暫存（stage）__ 和 __提交（commit）__ 的概念。情境是這樣的：揚鴻針對專案裡的檔案進行了多個修改。揚鴻跑了 `git status` 這個指令，檢視一下剛剛的修改：
+這邊講解一下 __暫存（stage）__ 和 __提交（commit）__ 的概念。情境是這樣的：塔矢亮針對專案裡的檔案進行了多個修改。塔矢亮跑了 `git status` 這個指令，檢視一下剛剛的修改：
 
 ```
 $ git status
@@ -73,11 +70,11 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 這代表修改的檔案包括 `A.txt` 及 `B.txt`。
 
-但是在提交這些修改之前，揚鴻想到這兩個修改應該要是不同意義的。`A.txt` 的修改主要是增加一些註解，而 `B.txt` 的修改是修正一些 bug。如果這兩個修改同時提交，那未來審視這個專案的修改歷史時會引起混亂。正確的觀念應該是分別提交 `A.txt` 及 `B.txt` 的修改。
+但是在提交這些修改之前，塔矢亮想到這兩個修改應該要是不同意義的。`A.txt` 的修改主要是增加一些註解，而 `B.txt` 的修改是修正一些 bug。如果這兩個修改同時提交，那未來審視這個專案的修改歷史時會引起混亂。正確的觀念應該是分別提交 `A.txt` 及 `B.txt` 的修改。
 
-這時揚鴻需要先用 `git add A.txt` __暫存__ `A.txt` 的修改，並用 `git commit -m <message>` __提交__ 。為了清楚描述這個修改，揚鴻必須提供一個 commit message，也就是 `<message>`。接著再針對 `B.txt` 的修改做一樣的事情。
+這時塔矢亮需要先用 `git add A.txt` __暫存__ `A.txt` 的修改，並用 `git commit -m <message>` __提交__ 。為了清楚描述這個修改，塔矢亮必須提供一個 commit message，也就是 `<message>`。接著再針對 `B.txt` 的修改做一樣的事情。
 
-於是揚鴻這麼做了：
+於是塔矢亮這麼做了：
 
 ```
 $ git add A.txt
@@ -86,12 +83,12 @@ $ git add B.txt
 $ git commit -m "Fix bugs"
 ```
 
-看到揚鴻這麼做的你，馬上就知道這個 problem 要怎麼完成了。
+看到塔矢亮這麼做的你，馬上就知道這個 problem 要怎麼完成了。
 
 #### 步驟
 
 1. 設定 Git 的使用者資料，才能在 commit 中留下紀錄（並找到修改的負責人）。執行 `git config --global user.email <email>` 和 `git config --global user.name <name>`，`<email>` 以你自己的 E-mail 取代，`<name>` 以自己的名字取代。
-2. `Assignment0` 目錄下有兩份檔案，`coffee_or_tea.txt` 及 `dog_or_cat.txt`。用任何編輯器（Notepad++，Sublime，甚至 Word 都行）打開，將出現的問題刪掉，並加上自己的回答（e.g. 刪掉 `<Coffee or tea?>`，輸入 `Coffee`）。存檔。
+2. `Assignment` 目錄下有兩份檔案，`coffee_or_tea.txt` 及 `dog_or_cat.txt`。用任何編輯器（Notepad++，Sublime，甚至 Word 都行）打開，將出現的問題刪掉，並加上自己的回答（e.g. 刪掉 `<Coffee or tea?>`，輸入 `Coffee`）。存檔。
 3. 提交修改 __兩次__ 。兩份檔案的修改分別提交，先提交哪份的修改都可以，並附上 __清楚的 commit message__ 。
 
 #### 提示
@@ -149,18 +146,18 @@ $ git branch
 
 可以看到星星跑道我們剛剛新增的 `new` branch 之前，代表現在在 `new` branch。
 
-我們來進行一些修改，例如刪除那兩份檔案。執行 `rm Assignment0/*`，`*` 代表目錄下所有檔案。這時看看我們的 git status：
+我們來進行一些修改，例如刪除那兩份檔案。執行 `rm Assignment/*`，`*` 代表目錄下所有檔案。這時看看我們的 git status：
 
 ```
 $ git status
 On branch new
 ...
-	deleted:    Assignment0/coffee_or_tea.txt
-	deleted:    Assignment0/dog_or_cat.txt
+	deleted:    Assignment/coffee_or_tea.txt
+	deleted:    Assignment/dog_or_cat.txt
 ...
 ```
 
-可以看到檔案被刪除了。這時我們一次提交這兩個修改。執行 `git add Assignment0/*` 暫存修改後，執行 `git commit -m "Delete files"` 提交。
+可以看到檔案被刪除了。這時我們一次提交這兩個修改。執行 `git add Assignment/*` 暫存修改後，執行 `git commit -m "Delete files"` 提交。
 
 現在在 `new` branch 我們失去了這兩個檔案。我們後悔了，於是決定換回 `master` branch 重新來過。
 
@@ -168,14 +165,12 @@ On branch new
 
 檢查一下你的目錄，那兩個檔案回來了嗎？
 
-## 評分標準
+## Deliverables
 
-- Functionality
-    - 在 GitHub 及本地的兩份檔案 `coffee_or_tea.txt` 和 `dog_or_cat.txt` 必須被修改。
-    - 在 GitHub 及本地的 `README.md` 心得區必須有心得。
-    - 在 commit history 中應有兩個檔案修改的 commit 和一個 `README.md` 修改的 commit
-- Style
-    - Commit message 必須清楚描述此次的 commit
+- 在 GitHub 及本地的兩份檔案 `coffee_or_tea.txt` 和 `dog_or_cat.txt` 必須被修改。
+- 在 GitHub 及本地的 `README.md` 心得區必須有心得。
+- 在 commit history 中應有兩個檔案修改的 commit 和一個 `README.md` 修改的 commit
+- Commit message 必須清楚描述此次的 commit
 
 ## 心得區
 

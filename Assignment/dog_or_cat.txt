@@ -1,1 +1,2 @@
 <Dog or cat?>
+cat
